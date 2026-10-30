@@ -6,7 +6,16 @@
     <title>Unity Web Player | VOID DIVER</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
-  </head>
+  <style>
+#vd-loading{position:fixed;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;
+background:#07090d;color:#cfe8e6;font:14px/1.5 system-ui,sans-serif;pointer-events:none;transition:opacity .6s}
+#vd-loading h1{font:700 34px/1 system-ui,sans-serif;letter-spacing:.12em;margin:0 0 6px;color:#e8f6f4}
+#vd-loading .sub{opacity:.6;margin-bottom:28px;letter-spacing:.08em}
+#vd-loading .bar{width:min(420px,70%);height:4px;background:#1b2a2c;border-radius:2px;overflow:hidden}
+#vd-loading .fill{height:100%;width:0;background:#46a4a0;transition:width .4s}
+#vd-loading .status{margin-top:12px;opacity:.75;font-variant-numeric:tabular-nums}
+</style>
+</head>
   <body>
     <div id="unity-container" class="unity-desktop">
       <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
@@ -52,12 +61,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/vd-webgl-build-fix.loader.js";
+      var loaderUrl = buildUrl + "/vd-webgl-build-opt2.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/vd-webgl-build-fix.data.unityweb",
-        frameworkUrl: buildUrl + "/vd-webgl-build-fix.framework.js.unityweb",
-        codeUrl: buildUrl + "/vd-webgl-build-fix.wasm.unityweb",
+        dataUrl: buildUrl + "/vd-webgl-build-opt2.data.unityweb",
+        frameworkUrl: buildUrl + "/vd-webgl-build-opt2.framework.js.unityweb",
+        codeUrl: buildUrl + "/vd-webgl-build-opt2.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Nemo Studio",
         productName: "VOID DIVER",
@@ -129,5 +138,40 @@
       document.body.appendChild(script);
 
     </script>
-  </body>
+  <div id="vd-loading"><h1>VOID DIVER</h1><div class="sub">Escape from the Abyss</div>
+<div class="bar"><div class="fill"></div></div><div class="status">Starting...</div></div>
+<script>
+(function () {
+  var el = document.getElementById('vd-loading'), fill = el.querySelector('.fill'), status = el.querySelector('.status');
+  var expected = 370288815, bytes = 0, done = false, last = 0, lastChange = Date.now();
+  try {
+    new PerformanceObserver(function (list) {
+      list.getEntries().forEach(function (e) { bytes += e.encodedBodySize || e.transferSize || 0; });
+    }).observe({ type: 'resource', buffered: true });
+  } catch (e) {}
+  function place() {
+    var c = document.getElementById('unity-canvas');
+    if (c) { var r = c.getBoundingClientRect(); el.style.left = r.left + 'px'; el.style.top = r.top + 'px';
+      el.style.width = r.width + 'px'; el.style.height = r.height + 'px'; }
+  }
+  function tick() {
+    if (done) return;
+    place();
+    if (bytes !== last) { last = bytes; lastChange = Date.now(); }
+    var mb = (bytes / 1048576).toFixed(0), idle = Date.now() - lastChange > 2500;
+    fill.style.width = Math.min(97, 100 * bytes / expected).toFixed(1) + '%';
+    status.textContent = idle && bytes > 0 ? 'Preparing the game... (' + mb + ' MB loaded)' : 'Downloading game data... ' + mb + ' MB';
+    requestAnimationFrame(tick);
+  }
+  window.vdLoadingDone = function () {
+    if (done) return;
+    done = true; fill.style.width = '100%'; el.style.opacity = '0';
+    console.log('[vd-loading] title after ' + (performance.now() / 1000).toFixed(1) + ' s, ' + (bytes / 1048576).toFixed(0) + ' MB loaded');
+    setTimeout(function () { el.remove(); }, 700);
+    var c = document.getElementById('unity-canvas'); if (c) c.focus();
+  };
+  tick();
+})();
+</script>
+</body>
 </html>
