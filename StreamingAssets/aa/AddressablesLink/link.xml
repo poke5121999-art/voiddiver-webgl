@@ -921,13 +921,13 @@
     <type fullname="ShaderPointRegistry" preserve="all" />
     <type fullname="UIMaterialController" preserve="all" />
     <type fullname="UnityEngine.Rendering.Universal.CustomScreenSpaceAmbientOcclusion" preserve="all" />
+    <type fullname="CustomScreenFeature/CustomScreenSetting" preserve="nothing" serialized="true" />
+    <type fullname="CustomScreenFeature/MaterialPassInfo" preserve="nothing" serialized="true" />
+    <type fullname="ScreenBlurFeature/ScreenBlurSettings" preserve="nothing" serialized="true" />
     <type fullname="CustomCameraUtils/ECustomCameraResolutionType" preserve="nothing" serialized="true" />
     <type fullname="CustomRenderObjectsFeature/RenderPassSettings" preserve="nothing" serialized="true" />
     <type fullname="CustomScreenBufferRendererFeature/CustomScreenBufferPassSetting" preserve="nothing" serialized="true" />
-    <type fullname="CustomScreenFeature/CustomScreenSetting" preserve="nothing" serialized="true" />
-    <type fullname="CustomScreenFeature/MaterialPassInfo" preserve="nothing" serialized="true" />
     <type fullname="GrabpassRenderFeature/GrabpassEntry" preserve="nothing" serialized="true" />
-    <type fullname="ScreenBlurFeature/ScreenBlurSettings" preserve="nothing" serialized="true" />
     <type fullname="ScreenBlurUnifiedRendererFeature/ScreenBlurUnifiedSettings" preserve="nothing" serialized="true" />
     <type fullname="ShaderKeywordRenderFeature/Settings" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.CustomScreenSpaceAmbientOcclusion/CustomScreenSpaceAmbientOcclusionSettings" preserve="nothing" serialized="true" />
@@ -1098,17 +1098,17 @@
     <type fullname="UnityEngine.Rendering.Universal.TemporalAA/Settings" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.FilmGrainLookupParameter" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.ScreenSpaceLensFlareResolutionParameter" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.Universal.RenderObjects/CustomCameraSettings" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.Universal.RenderObjects/FilterSettings" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.Universal.RenderObjects/RenderObjectsSettings" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.Universal.StencilStateData" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.DBufferSettings" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.DecalScreenSpaceSettings" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.DecalSettings" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.PostProcessData/ShaderResources" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.PostProcessData/TextureResources" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.Rendering.Universal.RenderObjects/CustomCameraSettings" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.Rendering.Universal.RenderObjects/FilterSettings" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.Rendering.Universal.RenderObjects/RenderObjectsSettings" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.ScriptableRendererData/DebugShaderResources" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.ScriptableRendererData/ProbeVolumeResources" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.Rendering.Universal.StencilStateData" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.UniversalRenderPipelineAsset/TextureResources" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">

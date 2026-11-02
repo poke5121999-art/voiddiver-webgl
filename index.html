@@ -14,6 +14,13 @@ background:#07090d;color:#cfe8e6;font:14px/1.5 system-ui,sans-serif;pointer-even
 #vd-loading .bar{width:min(420px,70%);height:4px;background:#1b2a2c;border-radius:2px;overflow:hidden}
 #vd-loading .fill{height:100%;width:0;background:#46a4a0;transition:width .4s}
 #vd-loading .status{margin-top:12px;opacity:.75;font-variant-numeric:tabular-nums}
+html,body{margin:0;height:100%;overflow:hidden;background:#000}
+#unity-container.unity-desktop{position:fixed;left:0;top:0;width:100%;height:100%;transform:none;display:flex;align-items:center;justify-content:center}
+#unity-canvas{background:#000}
+#unity-footer{display:none}
+#vd-fullscreen{position:fixed;right:10px;bottom:10px;z-index:5;width:38px;height:38px;cursor:pointer;opacity:.35;
+background:url('TemplateData/fullscreen-button.png') no-repeat center}
+#vd-fullscreen:hover{opacity:.9}
 </style>
 </head>
   <body>
@@ -61,12 +68,12 @@ background:#07090d;color:#cfe8e6;font:14px/1.5 system-ui,sans-serif;pointer-even
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/vd-webgl-build-opt6.loader.js";
+      var loaderUrl = buildUrl + "/vd-webgl-build-opt7.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/vd-webgl-build-opt6.data.unityweb",
-        frameworkUrl: buildUrl + "/vd-webgl-build-opt6.framework.js.unityweb",
-        codeUrl: buildUrl + "/vd-webgl-build-opt6.wasm.unityweb",
+        dataUrl: buildUrl + "/vd-webgl-build-opt7.data.unityweb",
+        frameworkUrl: buildUrl + "/vd-webgl-build-opt7.framework.js.unityweb",
+        codeUrl: buildUrl + "/vd-webgl-build-opt7.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Nemo Studio",
         productName: "VOID DIVER",
@@ -143,7 +150,7 @@ background:#07090d;color:#cfe8e6;font:14px/1.5 system-ui,sans-serif;pointer-even
 <script>
 (function () {
   var el = document.getElementById('vd-loading'), fill = el.querySelector('.fill'), status = el.querySelector('.status');
-  var expected = 370349456, bytes = 0, done = false, last = 0, lastChange = Date.now();
+  var expected = 370299958, bytes = 0, done = false, last = 0, lastChange = Date.now();
   try {
     new PerformanceObserver(function (list) {
       list.getEntries().forEach(function (e) { bytes += e.encodedBodySize || e.transferSize || 0; });
@@ -171,6 +178,28 @@ background:#07090d;color:#cfe8e6;font:14px/1.5 system-ui,sans-serif;pointer-even
     var c = document.getElementById('unity-canvas'); if (c) c.focus();
   };
   tick();
+})();
+// The game fills the window at 16:9, as on a monitor, instead of the template's fixed 960x600 box: leaving
+// fullscreen (Esc) used to drop it into that small box. In fullscreen, Esc is locked to the page where the browser
+// allows it (Chrome), so a press reaches the game's menu and holding it leaves fullscreen.
+(function () {
+  var canvas = document.getElementById('unity-canvas');
+  function fit() {
+    var w = window.innerWidth, h = window.innerHeight;
+    if (w * 9 > h * 16) w = Math.round(h * 16 / 9); else h = Math.round(w * 9 / 16);
+    canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+  }
+  fit();
+  window.addEventListener('resize', fit);
+  document.addEventListener('fullscreenchange', function () {
+    fit();
+    if (document.fullscreenElement && navigator.keyboard && navigator.keyboard.lock)
+      navigator.keyboard.lock(['Escape']).catch(function () {});
+  });
+  var button = document.createElement('div');
+  button.id = 'vd-fullscreen'; button.title = 'Fullscreen';
+  button.onclick = function () { (document.getElementById('unity-container') || canvas).requestFullscreen().catch(function () {}); };
+  document.body.appendChild(button);
 })();
 </script>
 </body>
