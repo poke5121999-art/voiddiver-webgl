@@ -304,12 +304,12 @@
     <type fullname="MaterialPreset" preserve="nothing" serialized="true" />
     <type fullname="CurveBinding" preserve="nothing" serialized="true" />
     <type fullname="LayerWeightBinding" preserve="nothing" serialized="true" />
+    <type fullname="CampaignDetailBackgroundController/ThemeTrackEntry" preserve="nothing" serialized="true" />
     <type fullname="ScreenSpaceShadowRendererFeature/ScreenSpaceShadowSetting" preserve="nothing" serialized="true" />
     <type fullname="SnapshotTypeAssignFeature/SnapshotTypeKeyword" preserve="nothing" serialized="true" />
     <type fullname="ParticleSetupTool/AnimatorEntry" preserve="nothing" serialized="true" />
     <type fullname="ParticleSetupTool/ParticleEntry" preserve="nothing" serialized="true" />
     <type fullname="ParticleSetupTool/TransformEntry" preserve="nothing" serialized="true" />
-    <type fullname="CampaignDetailBackgroundController/ThemeTrackEntry" preserve="nothing" serialized="true" />
     <type fullname="AnomalyVolumeConfig/Entry" preserve="nothing" serialized="true" />
     <type fullname="BackgroundShaderOverrideTable/Entry" preserve="nothing" serialized="true" />
     <type fullname="CameraPostProcessingInfo" preserve="nothing" serialized="true" />
@@ -1096,12 +1096,12 @@
     <type fullname="UnityEngine.Rendering.Universal.DepthOfFieldModeParameter" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.DownscaleParameter" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.TemporalAA/Settings" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.Rendering.Universal.FilmGrainLookupParameter" preserve="nothing" serialized="true" />
-    <type fullname="UnityEngine.Rendering.Universal.ScreenSpaceLensFlareResolutionParameter" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.RenderObjects/CustomCameraSettings" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.RenderObjects/FilterSettings" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.RenderObjects/RenderObjectsSettings" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.StencilStateData" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.Universal.FilmGrainLookupParameter" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Rendering.Universal.ScreenSpaceLensFlareResolutionParameter" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.DBufferSettings" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.DecalScreenSpaceSettings" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Rendering.Universal.DecalSettings" preserve="nothing" serialized="true" />
