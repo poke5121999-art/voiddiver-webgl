@@ -68,12 +68,12 @@ background:url('TemplateData/fullscreen-button.png') no-repeat center}
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/vd-webgl-build-opt8.loader.js";
+      var loaderUrl = buildUrl + "/vd-webgl-build-opt11.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/vd-webgl-build-opt8.data.unityweb",
-        frameworkUrl: buildUrl + "/vd-webgl-build-opt8.framework.js.unityweb",
-        codeUrl: buildUrl + "/vd-webgl-build-opt8.wasm.unityweb",
+        dataUrl: buildUrl + "/vd-webgl-build-opt11.data.unityweb",
+        frameworkUrl: buildUrl + "/vd-webgl-build-opt11.framework.js.unityweb",
+        codeUrl: buildUrl + "/vd-webgl-build-opt11.wasm.unityweb",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Nemo Studio",
         productName: "VOID DIVER",
@@ -150,7 +150,7 @@ background:url('TemplateData/fullscreen-button.png') no-repeat center}
 <script>
 (function () {
   var el = document.getElementById('vd-loading'), fill = el.querySelector('.fill'), status = el.querySelector('.status');
-  var expected = 370328133, bytes = 0, done = false, last = 0, lastChange = Date.now();
+  var expected = 370326742, bytes = 0, done = false, last = 0, lastChange = Date.now();
   try {
     new PerformanceObserver(function (list) {
       list.getEntries().forEach(function (e) { bytes += e.encodedBodySize || e.transferSize || 0; });
