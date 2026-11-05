@@ -269,12 +269,12 @@ background:url('TemplateData/fullscreen-button.png') no-repeat center}
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/vd-webgl-build-opt18.loader.js";
+      var loaderUrl = buildUrl + "/vd-webgl-build-opt19.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/vd-webgl-build-opt18.data.unityweb?v=5c7a6600ed2caf06",
-        frameworkUrl: buildUrl + "/vd-webgl-build-opt18.framework.js.unityweb?v=32a9e8a0a42d42ed",
-        codeUrl: buildUrl + "/vd-webgl-build-opt18.wasm.unityweb?v=3426a33e2cecf09f",
+        dataUrl: buildUrl + "/vd-webgl-build-opt19.data.unityweb?v=79d68313a930f0dc",
+        frameworkUrl: buildUrl + "/vd-webgl-build-opt19.framework.js.unityweb?v=819a941e665df86a",
+        codeUrl: buildUrl + "/vd-webgl-build-opt19.wasm.unityweb?v=c018a7bcdb2b25e1",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "Nemo Studio",
         productName: "VOID DIVER",
@@ -293,10 +293,10 @@ background:url('TemplateData/fullscreen-button.png') no-repeat center}
         //   - Other same-site files: "must-revalidate". Anything on another site (the log upload): not cached.
         // A new build changes the ids of the files it changed; the old copies age out of UnityCache's 1 GB.
         vdCacheIds: {
-          "StreamingAssets/aa/AddressablesLink/link.xml": "71fb40458ca56ed9",
-          "StreamingAssets/aa/catalog.bin": "845aa2b56a5107eb",
-          "StreamingAssets/aa/catalog.hash": "2e9ea0520fe87c08",
-          "StreamingAssets/aa/settings.json": "074fb50ec2108acf",
+          "StreamingAssets/aa/AddressablesLink/link.xml": "8258f280088d3457",
+          "StreamingAssets/aa/catalog.bin": "86a4d3b9d3261de3",
+          "StreamingAssets/aa/catalog.hash": "fe42d5312d847b0f",
+          "StreamingAssets/aa/settings.json": "f9eccd27062b8a4f",
           "StreamingAssets/vd-streaming-files.txt": "475c3f8f6f264149",
           "StreamingAssets/vd-streaming-pack.txt": "7ff59bb26513fedd"
         },
@@ -391,7 +391,7 @@ background:url('TemplateData/fullscreen-button.png') no-repeat center}
 <script>
 (function () {
   var el = document.getElementById('vd-loading'), fill = el.querySelector('.fill'), status = el.querySelector('.status');
-  var expected = 370339309, bytes = 0, done = false, last = 0, lastChange = Date.now();
+  var expected = 370316725, bytes = 0, done = false, last = 0, lastChange = Date.now();
   try {
     new PerformanceObserver(function (list) {
       list.getEntries().forEach(function (e) { bytes += e.encodedBodySize || e.transferSize || 0; });
